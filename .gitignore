@@ -1,0 +1,11 @@
+.DS_Store
+**/xcuserdata/
+**/.build/
+**/build/
+**/sim-build/
+*.log
+*.ipa
+*.xcarchive
+*.mobileprovision
+*.p12
+*.pem

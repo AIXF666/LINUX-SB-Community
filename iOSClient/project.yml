@@ -1,0 +1,28 @@
+name: LinuxSB
+options:
+  bundleIdPrefix: com.ccy
+packages:
+  SwiftSoup:
+    path: Vendor/SwiftSoup-2.7.0
+targets:
+  LinuxSB:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources: [Sources, Assets.xcassets]
+    dependencies:
+      - package: SwiftSoup
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ccy.linuxsb.client
+        DEVELOPMENT_TEAM: X5TSLL4ZR3
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: LINUX SB
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        TARGETED_DEVICE_FAMILY: "1,2"
+        MARKETING_VERSION: "2.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_VERSION: "5.0"
