@@ -1,0 +1,20 @@
+name: Remove mistaken 2.1.0 package version
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve and remove only the mistaken version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(gh api --paginate '/users/AIXF666/packages/container/linux-sb-community/versions?per_page=100' --jq '.[] | select(.metadata.container.tags | index("2.1.0-preview")) | .id')
+          test -n "$ids"
+          for id in $ids; do
+            gh api -X DELETE "/users/AIXF666/packages/container/linux-sb-community/versions/$id"
+          done
+          gh api --paginate '/users/AIXF666/packages/container/linux-sb-community/versions?per_page=100' --jq '[.[] | select(.metadata.container.tags | index("2.1.0-preview"))] | length' | awk '$0 != 0 {exit 1}'
