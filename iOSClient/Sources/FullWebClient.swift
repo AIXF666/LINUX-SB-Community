@@ -18,7 +18,7 @@ struct FullWebClient: View {
             .background(
                 (colorScheme == .dark
                     ? Color(red: 16 / 255, green: 23 / 255, blue: 32 / 255)
-                    : Color(red: 245 / 255, green: 246 / 255, blue: 248 / 255))
+                    : Color(red: 244 / 255, green: 246 / 255, blue: 249 / 255))
                     .ignoresSafeArea()
             )
     }
